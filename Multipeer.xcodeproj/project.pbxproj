@@ -21,6 +21,10 @@
 		89D48E6318C65188004C93F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89D48E4518C65188004C93F2 /* UIKit.framework */; };
 		89D48E6B18C65188004C93F2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89D48E6918C65188004C93F2 /* InfoPlist.strings */; };
 		89D48E6D18C65188004C93F2 /* MultipeerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D48E6C18C65188004C93F2 /* MultipeerTests.m */; };
+		89D48E7718C65461004C93F2 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89D48E7618C65461004C93F2 /* MultipeerConnectivity.framework */; };
+		89D48E7D18C67DD9004C93F2 /* SFAdvertisingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D48E7C18C67DD9004C93F2 /* SFAdvertisingViewController.m */; };
+		89D48E8018C6868A004C93F2 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D48E7F18C6868A004C93F2 /* Constants.m */; };
+		89D48E8318C693FB004C93F2 /* MCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D48E8218C693FB004C93F2 /* MCManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,13 @@
 		89D48E6818C65188004C93F2 /* MultipeerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MultipeerTests-Info.plist"; sourceTree = "<group>"; };
 		89D48E6A18C65188004C93F2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		89D48E6C18C65188004C93F2 /* MultipeerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultipeerTests.m; sourceTree = "<group>"; };
+		89D48E7618C65461004C93F2 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
+		89D48E7B18C67DD9004C93F2 /* SFAdvertisingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SFAdvertisingViewController.h; path = ../SFAdvertisingViewController.h; sourceTree = "<group>"; };
+		89D48E7C18C67DD9004C93F2 /* SFAdvertisingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SFAdvertisingViewController.m; path = ../SFAdvertisingViewController.m; sourceTree = "<group>"; };
+		89D48E7E18C6868A004C93F2 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../Constants.h; sourceTree = "<group>"; };
+		89D48E7F18C6868A004C93F2 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = ../Constants.m; sourceTree = "<group>"; };
+		89D48E8118C693FB004C93F2 /* MCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCManager.h; path = ../MCManager.h; sourceTree = "<group>"; };
+		89D48E8218C693FB004C93F2 /* MCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MCManager.m; path = ../MCManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89D48E7718C65461004C93F2 /* MultipeerConnectivity.framework in Frameworks */,
 				89D48E4418C65188004C93F2 /* CoreGraphics.framework in Frameworks */,
 				89D48E4618C65188004C93F2 /* UIKit.framework in Frameworks */,
 				89D48E4218C65188004C93F2 /* Foundation.framework in Frameworks */,
@@ -101,6 +113,7 @@
 		89D48E4018C65188004C93F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				89D48E7618C65461004C93F2 /* MultipeerConnectivity.framework */,
 				89D48E4118C65188004C93F2 /* Foundation.framework */,
 				89D48E4318C65188004C93F2 /* CoreGraphics.framework */,
 				89D48E4518C65188004C93F2 /* UIKit.framework */,
@@ -112,6 +125,12 @@
 		89D48E4718C65188004C93F2 /* Multipeer */ = {
 			isa = PBXGroup;
 			children = (
+				89D48E8118C693FB004C93F2 /* MCManager.h */,
+				89D48E8218C693FB004C93F2 /* MCManager.m */,
+				89D48E7E18C6868A004C93F2 /* Constants.h */,
+				89D48E7F18C6868A004C93F2 /* Constants.m */,
+				89D48E7B18C67DD9004C93F2 /* SFAdvertisingViewController.h */,
+				89D48E7C18C67DD9004C93F2 /* SFAdvertisingViewController.m */,
 				89D48E5018C65188004C93F2 /* SFAppDelegate.h */,
 				89D48E5118C65188004C93F2 /* SFAppDelegate.m */,
 				89D48E5318C65188004C93F2 /* Main.storyboard */,
@@ -250,6 +269,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89D48E8018C6868A004C93F2 /* Constants.m in Sources */,
+				89D48E8318C693FB004C93F2 /* MCManager.m in Sources */,
+				89D48E7D18C67DD9004C93F2 /* SFAdvertisingViewController.m in Sources */,
 				89D48E4E18C65188004C93F2 /* main.m in Sources */,
 				89D48E5818C65188004C93F2 /* SFViewController.m in Sources */,
 				89D48E5218C65188004C93F2 /* SFAppDelegate.m in Sources */,
