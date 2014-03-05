@@ -14,6 +14,7 @@
 @property (nonatomic) MCPeerID *localPeerID;
 @property (nonatomic) MCBrowserViewController *browserVC;
 @property (nonatomic) NSOutputStream *outputStream;
+@property (nonatomic) SFAppDelegate *appDelegate;
 
 @property (strong, nonatomic) IBOutlet UILabel *senderLabel;
 
@@ -27,19 +28,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.localPeerID = [[MCPeerID alloc] initWithDisplayName:[[UIDevice currentDevice] name]];
     
-    self.session = [[MCSession alloc] initWithPeer:self.localPeerID
-                                        securityIdentity:nil
-                                    encryptionPreference:MCEncryptionNone];
-    self.session.delegate = self;
+    self.appDelegate = (SFAppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.localPeerID = self.appDelegate.localPeerID;
     
+    self.session = self.appDelegate.session;
     
-    self.browserVC = [[MCBrowserViewController alloc] initWithServiceType:CFServiceType
-                                                                  session:self.session];
-    
-    
-    self.browserVC.delegate = self;
+    self.browserVC = self.appDelegate.browser;
     
     
     self.senderLabel.text = [[UIDevice currentDevice] name];
@@ -119,17 +114,18 @@
                       forMode:NSDefaultRunLoopMode];
     [stream open];
     
-    NSString *message = 
+    
+    NSData *data = [NSData dataWithContentsOfFile:stream];
+    
+//    NSDictionary *dictionary = (NSDictionary *)[NSKeyedUnarchiver unarchiveObjectWithData:stream];
+    
 }
 
 
 //For receiving messages
 -(void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID
 {
-    NSString *message =
-    [[NSString alloc] initWithData:data
-                          encoding:NSUTF8StringEncoding];
-    NSLog(@"%@", message);
+    
 }
 
 -(void)session:(MCSession *)session didStartReceivingResourceWithName:(NSString *)resourceName fromPeer:(MCPeerID *)peerID withProgress:(NSProgress *)progress
@@ -169,15 +165,20 @@
     
 }
 
-
+-(void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode
+{
+    
+}
 
 
 - (IBAction)sendMessage:(id)sender {
-    NSString *message = @"Hello, World!";
-    NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *dictionary = @{@"message": @"Hello World!",
+                                 @"Punch": @"Left" };
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:dictionary];
     NSError *error;
     
     [self.session sendData:data toPeers:[self.session connectedPeers] withMode:MCSessionSendDataReliable error:&error];
     
 }
+
 @end

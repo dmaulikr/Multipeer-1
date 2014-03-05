@@ -10,4 +10,16 @@
 
 @implementation MCManager
 
+-(id)init
+{
+    if (self = [super init]) {
+        self.localPeerID = nil;
+        self.session = nil;
+        self.assistant = nil;
+        self.browser = nil;
+    }
+    
+    return self;
+}
+
 @end

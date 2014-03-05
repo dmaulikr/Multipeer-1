@@ -13,6 +13,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.localPeerID = [[MCPeerID alloc] initWithDisplayName:[[UIDevice currentDevice] name]];
+    self.session = [[MCSession alloc] initWithPeer:self.localPeerID
+                                  securityIdentity:nil
+                              encryptionPreference:MCEncryptionNone];
+    self.session.delegate = self;
+    
+    self.browser = [[MCBrowserViewController alloc] initWithServiceType:CFServiceType session:self.session];
+    self.browser.delegate;
+    
+    self.assistant = [[MCAdvertiserAssistant alloc] initWithServiceType:CFServiceType
+                                                          discoveryInfo:nil
+                                                                session:self.session];
+    
     return YES;
 }
 							

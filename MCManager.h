@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MultipeerConnectivity/MultipeerConnectivity.h>
 
-@interface MCManager : NSObject
+@interface MCManager : NSObject <MCSessionDelegate>
+
+@property (nonatomic) MCPeerID *localPeerID;
+@property (nonatomic) MCSession *session;
+@property (nonatomic) MCAdvertiserAssistant *assistant;
+@property (nonatomic) MCBrowserViewController *browser;
 
 @end

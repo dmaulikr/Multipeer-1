@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Constants.h"
+#import "MCManager.h"
 
-@interface SFAppDelegate : UIResponder <UIApplicationDelegate>
+@interface SFAppDelegate : UIResponder <UIApplicationDelegate, MCSessionDelegate, MCAdvertiserAssistantDelegate, MCBrowserViewControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (nonatomic) MCPeerID *localPeerID;
+@property (nonatomic) MCSession *session;
+@property (nonatomic) MCAdvertiserAssistant *assistant;
+@property (nonatomic) MCBrowserViewController *browser;
 
 @end
